@@ -15,7 +15,7 @@ def translate(request):
     text = request.QUERY_PARAMS['text']
 
     # TODO: Добавить значение по умолчанию для lang_from
-    phrase, created = Phrase.objects.get(text=text, lang_from=lang_from, lang_to=lang_to)
+    phrase, created = Phrase.objects.get_or_create(text=text, lang_from=lang_from, lang_to=lang_to)
     if not created:
         phrase.touch()
 
