@@ -59,6 +59,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'registration',
     'south',
+    'lingvista.account',
     'lingvista.api',
     'lingvista.phrase',
 )
@@ -88,6 +89,8 @@ LOGGING = {
         },
     }
 }
+
+AUTH_USER_MODEL = 'account.Account'
 
 #PUBLIC TRANSLATION API ACCESS
 MS_TRANSLATOR_CLIENT_ID = 'lingvista'
