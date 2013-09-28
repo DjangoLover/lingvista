@@ -1,9 +1,4 @@
 # -*- coding: utf-8 -*-
-# Django settings for lingvista project.
-
-DEBUG = True
-TEMPLATE_DEBUG = DEBUG
-
 TIME_ZONE = 'UTC'
 LANGUAGE_CODE = 'en-us'
 
@@ -91,5 +86,3 @@ LOGGING = {
 #PUBLIC TRANSLATION API ACCESS
 MS_TRANSLATOR_CLIENT_ID = 'lingvista'
 MS_TRANSLATOR_CLIENT_SECRET = 'tEa4ZYJt7NLl+09I3XeQQ4FnRrMlfNl64g1kdpC/3m8='
-
-from localsettings import *
