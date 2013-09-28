@@ -58,7 +58,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     # 'django.contrib.admin',
     # 'django.contrib.admindocs',
-    'lingvista.api'
+    'lingvista.api',
+    'lingvista.phrase'
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
