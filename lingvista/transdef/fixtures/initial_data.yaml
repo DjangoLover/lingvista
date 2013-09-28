@@ -1,0 +1,120 @@
+- fields: {isocode: ar, bingcode: ar, name: Arabic, wikicode: ar}
+  model: transdef.language
+  pk: 1
+- fields: {isocode: bg, bingcode: bg, name: Bulgarian, wikicode: bg}
+  model: transdef.language
+  pk: 2
+- fields: {isocode: ca, bingcode: ca, name: Catalan, wikicode: ca}
+  model: transdef.language
+  pk: 3
+- fields: {isocode: cs, bingcode: cs, name: Czech, wikicode: cs}
+  model: transdef.language
+  pk: 4
+- fields: {isocode: da, bingcode: da, name: Danish, wikicode: da}
+  model: transdef.language
+  pk: 5
+- fields: {isocode: de, bingcode: de, name: German, wikicode: de}
+  model: transdef.language
+  pk: 6
+- fields: {isocode: el, bingcode: el, name: Greek, wikicode: el}
+  model: transdef.language
+  pk: 7
+- fields: {isocode: en, bingcode: en, name: English, wikicode: en}
+  model: transdef.language
+  pk: 8
+- fields: {isocode: es, bingcode: es, name: Spanish, wikicode: es}
+  model: transdef.language
+  pk: 9
+- fields: {isocode: et, bingcode: et, name: Estonian, wikicode: et}
+  model: transdef.language
+  pk: 10
+- fields: {isocode: fa, bingcode: fa, name: Persian (Farsi), wikicode: fa}
+  model: transdef.language
+  pk: 11
+- fields: {isocode: fi, bingcode: fi, name: Finnish, wikicode: fi}
+  model: transdef.language
+  pk: 12
+- fields: {isocode: fr, bingcode: fr, name: French, wikicode: fr}
+  model: transdef.language
+  pk: 13
+- fields: {isocode: he, bingcode: he, name: Hebrew, wikicode: he}
+  model: transdef.language
+  pk: 14
+- fields: {isocode: hi, bingcode: hi, name: Hindi, wikicode: hi}
+  model: transdef.language
+  pk: 15
+- fields: {isocode: ht, bingcode: ht, name: Haitian Creole, wikicode: ht}
+  model: transdef.language
+  pk: 16
+- fields: {isocode: hu, bingcode: hu, name: Hungarian, wikicode: hu}
+  model: transdef.language
+  pk: 17
+- fields: {isocode: id, bingcode: id, name: Indonesian, wikicode: id}
+  model: transdef.language
+  pk: 18
+- fields: {isocode: it, bingcode: it, name: Italian, wikicode: it}
+  model: transdef.language
+  pk: 19
+- fields: {isocode: ja, bingcode: ja, name: Japanese, wikicode: ja}
+  model: transdef.language
+  pk: 20
+- fields: {isocode: ko, bingcode: ko, name: Korean, wikicode: ko}
+  model: transdef.language
+  pk: 21
+- fields: {isocode: lt, bingcode: lt, name: Lithuanian, wikicode: lt}
+  model: transdef.language
+  pk: 22
+- fields: {isocode: lv, bingcode: lv, name: Latvian, wikicode: lv}
+  model: transdef.language
+  pk: 23
+- fields: {isocode: ms, bingcode: ms, name: Malay, wikicode: ms}
+  model: transdef.language
+  pk: 24
+- fields: {isocode: nl, bingcode: nl, name: Dutch, wikicode: nl}
+  model: transdef.language
+  pk: 25
+- fields: {bingcode: 'no', name: Norwegian, wikicode: 'no'}
+  model: transdef.language
+  pk: 26
+- fields: {isocode: pl, bingcode: pl, name: Polish, wikicode: pl}
+  model: transdef.language
+  pk: 27
+- fields: {isocode: pt, bingcode: pt, name: Portuguese, wikicode: pt}
+  model: transdef.language
+  pk: 28
+- fields: {isocode: ro, bingcode: ro, name: Romanian, wikicode: ro}
+  model: transdef.language
+  pk: 29
+- fields: {isocode: ru, bingcode: ru, name: Russian, wikicode: ru}
+  model: transdef.language
+  pk: 30
+- fields: {isocode: sk, bingcode: sk, name: Slovak, wikicode: sk}
+  model: transdef.language
+  pk: 31
+- fields: {isocode: sl, bingcode: sl, name: Slovenian, wikicode: sl}
+  model: transdef.language
+  pk: 32
+- fields: {isocode: sv, bingcode: sv, name: Swedish, wikicode: sv}
+  model: transdef.language
+  pk: 33
+- fields: {isocode: th, bingcode: th, name: Thai, wikicode: th}
+  model: transdef.language
+  pk: 34
+- fields: {isocode: tr, bingcode: tr, name: Turkish, wikicode: tr}
+  model: transdef.language
+  pk: 35
+- fields: {isocode: uk, bingcode: uk, name: Ukrainian, wikicode: uk}
+  model: transdef.language
+  pk: 36
+- fields: {isocode: ur, bingcode: ur, name: Urdu, wikicode: ur}
+  model: transdef.language
+  pk: 37
+- fields: {isocode: vi, bingcode: vi, name: Vietnamese, wikicode: vi}
+  model: transdef.language
+  pk: 38
+- fields: {isocode: zh-hans, bingcode: zh-CHS, name: Chinese (Simplified), wikicode: zh}
+  model: transdef.language
+  pk: 39
+- fields: {isocode: zh-hant, bingcode: zh-CHT, name: Chinese (Traditional), wikicode: zh}
+  model: transdef.language
+  pk: 40

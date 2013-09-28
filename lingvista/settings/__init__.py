@@ -60,7 +60,7 @@ INSTALLED_APPS = (
     'registration',
     'south',
     'lingvista.api',
-    'lingvista.phrase',
+    'lingvista.transdef',
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
