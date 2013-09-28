@@ -88,4 +88,8 @@ LOGGING = {
     }
 }
 
+#PUBLIC TRANSLATION API ACCESS
+MS_TRANSLATOR_CLIENT_ID = 'lingvista'
+MS_TRANSLATOR_CLIENT_SECRET = 'tEa4ZYJt7NLl+09I3XeQQ4FnRrMlfNl64g1kdpC/3m8='
+
 from localsettings import *
