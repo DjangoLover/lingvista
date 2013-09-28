@@ -1,0 +1,21 @@
+{
+  "content_scripts": [
+    "content_scripts/jquery-1.10.2.min.js",
+    "content_scripts/interface.js"
+
+  ],
+  "description": "Lingvista browser plugin",
+  "creator": "PyJamas",
+  "background_scripts": [
+    "background_scripts/main.js"
+  ],
+  "options_page": "options.html",
+  "homepage_url": "http://lingvista.org/",
+  "version": "0.1",
+  "browser_button": {
+    "caption": "Lingvista",
+    "icon": "icons/button.png",
+    "tooltipText": "Lingvista"
+  },
+  "name": "lingvista"
+}
