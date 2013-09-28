@@ -58,6 +58,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     # 'django.contrib.admin',
     # 'django.contrib.admindocs',
+    'lingvista.account',
     'lingvista.api',
     'lingvista.phrase',
 

@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ STATIC_URL }}foundation-4.3.2/css/normalize.css">
     <link rel="stylesheet" href="{{ STATIC_URL }}foundation-4.3.2/css/foundation.min.css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/style.css">
   </head>
   <body>
     <!--[if lt IE 7]>
@@ -50,8 +51,37 @@
   </nav>
 
   <section class="main">
-    <div class="panel row">
-      sdfsdfsdfds
+    <div class="row">
+      <div class="large-7 columns panel">
+        <h3><a href="#">Phrases</a></h3>
+        {% if phrase_list|length > 0 %}
+          <table>
+            <thead>
+              <tr>
+                <th width="200">Phrase</th>
+                <th>Language</th>
+                <th width="150">Score</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for item in phrase_list %}
+                <tr>
+                  <td>{{ item.text }}</td>
+                  <td>{{ item.lang }}</td>
+                  <td>{{ item.score }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        {% else %}
+          <p>
+            <strong>There are no phrases</strong>
+          </p>
+        {% endif %}
+      </div>
+      <div class="large-3 columns panel">
+        <h3><a href="#">Account</a></h3>
+      </div>
     </div>
   </section>
 
