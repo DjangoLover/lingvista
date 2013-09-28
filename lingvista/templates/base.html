@@ -29,7 +29,7 @@
 
       <!-- Right Nav Section -->
       <ul class="right">
-        {% if 1 %}
+        {% if user.is_authenticated %}
           <li class="has-dropdown"><a href="#">Account</a>
             <ul class="dropdown">
               <li><label></label></li>
@@ -43,7 +43,9 @@
             </ul>
           </li>
         {% else %}
-          <li><a href="#">Register</a></li>
+          <li><a href="{% url "auth_login" %}">Login</a></li>
+          <li class="divider"></li>
+          <li><a href="{% url "registration_register" %}">Register</a></li>
         {% endif %}
       </ul>
     </section>
@@ -51,7 +53,7 @@
 
   <section class="main">
     <div class="panel row">
-      sdfsdfsdfds
+      {% block content %}{% endblock %}
     </div>
   </section>
 

@@ -56,12 +56,11 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'django.contrib.admin',
-    # 'django.contrib.admindocs',
+    'django.contrib.admin',
+    'registration',
+    'south',
     'lingvista.api',
     'lingvista.phrase',
-
-    'south'
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
@@ -93,3 +92,5 @@ LOGGING = {
 #PUBLIC TRANSLATION API ACCESS
 MS_TRANSLATOR_CLIENT_ID = 'lingvista'
 MS_TRANSLATOR_CLIENT_SECRET = 'tEa4ZYJt7NLl+09I3XeQQ4FnRrMlfNl64g1kdpC/3m8='
+
+ACCOUNT_ACTIVATION_DAYS = 7
