@@ -3,3 +3,4 @@ djangorestframework==2.3.8
 mstranslator
 South
 PyYAML
+django-registration
