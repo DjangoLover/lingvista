@@ -6,7 +6,7 @@ from django.conf import settings
 
 
 class Phrase(models.Model):
-    user = models.ForeignKey('auth.User')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL)
     text = models.TextField(u'Text')
     score = models.PositiveIntegerField(u'Score', default=1)
     lang_from = models.CharField(u'Source language', max_length=255)
