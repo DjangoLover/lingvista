@@ -1,7 +1,10 @@
+// var API_URL = "http://lingvista.org/api/v1/lang/";
+var API_URL = "http://localhost:8000/api/v1/langs/";
+
 $(function () {
 
     $.ajax({
-        "url": "http://lingvista.org/api/v1/lang/",
+        "url": API_URL,
         "type": "GET",
         "success": function (response) {
 
