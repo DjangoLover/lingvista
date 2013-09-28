@@ -7,67 +7,62 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ STATIC_URL }}lib/foundation-4.3.2/css/normalize.css">
-    <link rel="stylesheet" href="{{ STATIC_URL }}lib/foundation-4.3.2/css/foundation.css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}lib/foundation-4.3.2/css/foundation.min.css">
   </head>
   <body>
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <nav class="top-bar hide-for-small">
-      <ul>
-        <!-- Title Area -->
-        <li class="name">
-          <h1>
-            <a href="http://foundation.zurb.com">Foundation</a>
-          </h1>
-        </li>
-        <li class="toggle-topbar"><a href="#"></a></li>
+  <nav class="top-bar">
+    <ul class="title-area">
+      <!-- Title Area -->
+      <li class="name">
+        <h1><a href="#">LingVista</a></h1>
+      </li>
+    </ul>
+
+    <section class="top-bar-section">
+      <!-- Left Nav Section -->
+      <ul class="left">
+        <li class="divider"></li>
       </ul>
 
-
-    <section>
-        <!-- Right Nav Section -->
-        <ul class="right">
-          <li class="show-for-small">
-          <a href="index.php">Home</a>
-        </li>
-        <li>
-          <a href="grid.php">Features</a>
-        </li>
-        <li>
-          <a href="templates.php">Add-ons</a>
-        </li>
-        <li>
-          <a href="case-jacquelinewest.php">Case Studies</a>
-        </li>
-        <li>
-          <a href="docs">Docs</a>
-        </li>
-        <li>
-          <a href="training.php">Training</a>
-        </li>
-        <li class="download"><a class="small blue nice button src-download" href="docs">Getting Started</a></li>
-          <!--
-
-          <li class="logged-in has-dropdown">
-            <a href="#">
-              <div class="avatar">
-                <img src="http://placehold.it/25x25">
-                User-Name Here
-              </div>
-            </a>
+      <!-- Right Nav Section -->
+      <ul class="right">
+        {% if 1 %}
+          <li class="has-dropdown"><a href="#">Account</a>
             <ul class="dropdown">
-              <li><a href="#"><img src="http://placehold.it/20x20&text=N">Notable</a></li>
-              <li><a href="#"><img src="http://placehold.it/20x20&text=S">Solidify</a></li>
-              <li><a href="#"><img src="http://placehold.it/20x20&text=V">Verify</a></li>
-              <li><a href="#"><img src="http://placehold.it/20x20&text=I">Influence</a></li>
-              <li class="signout"><a href="#">Sign Out</a></li>
+              <li><label></label></li>
+              <li>
+                <a href="#" class="">Base functional</a>
+              </li>
+              <li><a href="#">Statistic</a></li>
+              <li class="divider"></li>
+              <li><label>Common settings</label></li>
+              <li><a href="#">Settings</a></li>
             </ul>
           </li>
--->
+        {% else %}
+          <li><a href="#">Register</a></li>
+        {% endif %}
+      </ul>
+    </section>
+  </nav>
 
-        </ul>
-      </section></nav>
+  <section class="main">
+    <div class="panel row">
+      sdfsdfsdfds
+    </div>
+  </section>
 
+  <footer>
+
+  </footer>
+
+  <script type="text/javascript" src="{{ STATIC_URL }}lib/js/jquery-1.10.2.min.js"></script>
+  <script type="text/javascript" src="{{ STATIC_URL }}lib/foundation-4.3.2/js/foundation.min.js"></script>
+  <script type="text/javascript">
+    $(document).foundation();
+  </script>
   </body>
 </html>
