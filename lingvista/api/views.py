@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
-from django.conf import settings
 from mstranslator import Translator
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+
+from django.conf import settings
+
+from lingvista.phrase.models import Phrase
 
 
 @api_view(['GET'])
@@ -11,9 +14,12 @@ def translate(request):
     lang_to = request.QUERY_PARAMS['lang_to']
     text = request.QUERY_PARAMS['text']
 
-    t = Translator(settings.MS_TRANSLATOR_CLIENT_ID, settings.MS_TRANSLATOR_CLIENT_SECRET)
-    translation = t.translate(text, lang_from, lang_to)
-    data = {'lang_from': 'ru', 'lang_to': 'en', 'text': translation}
+    # TODO: Добавить значение по умолчанию для lang_from
+    phrase, created = Phrase.objects.get(text=text, lang_from=lang_from, lang_to=lang_to)
+    if not created:
+        phrase.touch()
+
+    data = {'lang_from': 'ru', 'lang_to': 'en', 'text': phrase.get_translation()}
     return Response(data)
 
 
