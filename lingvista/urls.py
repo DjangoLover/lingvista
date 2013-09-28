@@ -2,8 +2,7 @@
 from django.conf.urls import patterns, include, url
 
 urlpatterns = patterns('',
-    # url(r'^$', 'lingvista.views.home', name='home'),
-    # url(r'^lingvista/', include('lingvista.foo.urls')),
+    url(r'^api/v1/', include('lingvista.api.urls')),
 
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
