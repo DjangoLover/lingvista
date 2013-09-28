@@ -1,17 +1,19 @@
 # -*- coding: utf-8 -*-
 import json
-from django.test import TestCase
+from rest_framework.test import APITestCase
 
-class APITest(TestCase):
+
+class APITest(APITestCase):
+    """
+    Test case for lingvista REST API
+    """
     def test_translate(self):
-        response = self.client.get('/api/v1/translate/', {'text': u'Привет', 'lang_to': 'en'})
-        data = json.loads(response.content)
+        response = self.client.get('/api/v1/translate/', {'text': 'Привет', 'lang_to': 'en'})
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(data['text'], 'Hello')
+        self.assertEqual(response.data, {'lang_from': 'ru', 'lang_to': 'en', 'text': 'Hello'})
 
     def test_langs(self):
         response = self.client.get('/api/v1/langs/')
-        data = json.loads(response.content)
         self.assertEqual(response.status_code, 200)
-        self.assertIsInstance(data, list)
-        self.assertIn('en', data)
+        self.assertIsInstance(response.data, list)
+        self.assertIn('en', response.data)

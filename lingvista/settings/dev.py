@@ -21,6 +21,11 @@ DATABASES = {
     }
 }
 
+INSTALLED_APPS += (
+    'debug_toolbar',
+    'django_extensions',
+)
+
 SECRET_KEY = '@mo#3hjd#_x5bn0x0@43px-7(frjlebr2=$^bu*unzk4nd4z$4'
 
 ALLOWED_HOSTS = []
