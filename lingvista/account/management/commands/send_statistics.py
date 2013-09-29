@@ -43,10 +43,12 @@ class Command(BaseCommand):
             freq = delivery_setting.frequency
             if self.check_date(freq):
                 query = {}
-                if freq == 'month':
-                    query = {'creation_date__gte': today + datetime.timedelta(30)}
+                if freq == 'day':
+                    query = {'creation_date__gte': today + datetime.timedelta(1)}
                 if freq == 'week':
                     query = {'creation_date__gte': today + datetime.timedelta(7)}
+                if freq == 'month':
+                    query = {'creation_date__gte': today + datetime.timedelta(30)}
                 log_list = delivery_setting.account.log.filter(**query)
                 content = render_to_string('account/email/statistics_to_user.html',
                     {'delivery_setting': delivery_setting, 'log_list': log_list})

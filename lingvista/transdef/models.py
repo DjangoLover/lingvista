@@ -7,6 +7,9 @@ class Language(models.Model):
     """
     Language avaliable for translation and definition
     """
+    class Meta:
+        ordering = ['name']
+
     isocode = models.TextField("ISO language code", max_length=10)
     bingcode = models.TextField("Bing language code", max_length=10)
     wikicode = models.TextField("Wikipedia language code", max_length=10)
@@ -29,6 +32,6 @@ class TransDefLog(models.Model):
     created_at = models.DateTimeField('Creation time', auto_now_add=True)
 
     def __unicode__(self):
-        return '{0}: {1}'.format(self.pk, self.source[:20])
+        return u'{0}: {1}'.format(self.pk, self.source[:20])
 
 

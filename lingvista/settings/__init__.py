@@ -114,3 +114,9 @@ AUTH_USER_MODEL = 'account.Account'
 SOCIAL_AUTH_USER_MODEL = 'account.Account'
 SOCIAL_AUTH_GITHUB_KEY = '3aaa2258dd5b31bede42'
 SOCIAL_AUTH_GITHUB_SECRET = '6559b1bbd9e89ddcb836d6b19c717cf1536f6264'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication',
+    )
+}
