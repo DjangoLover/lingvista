@@ -28,11 +28,10 @@
                   {% gravatar user.email 30 %}{{ user.first_name }} <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a href="#">Requests stats</a></li>
                   <li><a href="{% url "transdef:trainer" %}">Lingvista trainer</a></li>
                   <li class="divider"></li>
                   <li><a href="{% url "account:settings" %}">Account settings</a></li>
-                  <li><a href="{% url "account:delivery-settings" %}">Statistics settings</a></li>
+                  <li><a href="{% url "account:delivery-settings" %}">Statistics delivery settings</a></li>
                   <li class="divider"></li>
                   <li><a href="{% url "lingvista-logout" %}">Logout</a></li>
                 </ul>
