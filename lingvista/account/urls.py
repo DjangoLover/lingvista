@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-from django.conf.urls import patterns, include, url
+from django.conf.urls import patterns, url
 
-urlpatterns = patterns('',
-    url(r'^settings/$', 'lingvista.account.views.settings', name='settings'),
-    url(r'^delivery_settings/$', 'lingvista.account.views.delivery_settings', name='delivery-settings'),
+urlpatterns = patterns('lingvista.account.views',
+    url(r'^settings/$', 'settings', name='settings'),
+    url(r'^delivery_settings/$', 'delivery_settings', name='delivery-settings'),
 )
