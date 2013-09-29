@@ -7,7 +7,7 @@ from rest_framework.response import Response
 from lingvista.api.serializers import AccountSettingsSerializer
 from lingvista.account.models import Account
 from lingvista.transdef.utils import define, translate, detect_language
-from lingvista.transdef.models import Language
+from lingvista.transdef.models import Language, TransDefLog
 
 
 
@@ -26,7 +26,17 @@ def transdef(request):
         lang_from = detect_language(source)
     if lang_from != lang_to:
         translation = translate(source, lang_from, lang_to)
-        definition = define(translation, lang_to)
+        # FIXME: definition -> null=True
+        definition = define(translation, lang_to) or ''
+        if request.user.is_authenticated():
+            TransDefLog.objects.create(
+                account=request.user,
+                source=source,
+                translation=translation,
+                definition=definition,
+                lang_from=lang_from,
+                lang_to=lang_to
+            )
     else:
         translation = None
         definition = define(source, lang_to)

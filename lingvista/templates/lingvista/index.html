@@ -5,17 +5,16 @@
     <div class="col-md-7">
       <div class="panel panel-primary">
         <div class="panel-heading">Phrases</div>
-        {% if phrase_list|length > 0 %}
+        {% if log_list|length == 0 %}
           <div class="panel-body">
             <p>There are no phrases</p>
           </div>
         {% else %}
           <table class="table">
-            {% for item in phrase_list %}
+            {% for item in log_list %}
               <tr>
-                <td>{{ item.text }}</td>
-                <td>{{ item.lang }}</td>
-                <td>{{ item.score }}</td>
+                <td>{{ item.source }}</td>
+                <td>{{ item.total }}</td>
               </tr>
             {% endfor %}
           </table>
