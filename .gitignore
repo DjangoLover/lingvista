@@ -35,3 +35,4 @@ nosetests.xml
 .pydevproject
 
 browser_plugin/output
+lingvista/settings/prod.py

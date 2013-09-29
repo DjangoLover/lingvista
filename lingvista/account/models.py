@@ -6,8 +6,8 @@ from lingvista.transdef.models import Language
 
 
 class Account(AbstractUser):
-    language = models.ForeignKey(Language, blank=True, null=True, verbose_name='Default translate language')
-
+    language = models.ForeignKey(Language, default=lambda: Language.objects.get(isocode='en'),
+                                 verbose_name='Default translate language')
     objects = UserManager()
 
 
