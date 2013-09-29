@@ -18,27 +18,18 @@
             <li>Download our <a href="">Google Chrome Plugin</a>.</li>
           </ol>
         </div>
-
-        <div class="panel-heading">Phrases</div>
-        {% if log_list|length == 0 %}
-          <div class="panel-body">
-            <p>There are no phrases</p>
+        {% if log_list|length > 0 %}
+          <div class="panel-heading">Your last searches</div>
+            <table class="table">
+              {% for item in log_list %}
+                <tr>
+                  <td>{{ item.source }}</td>
+                  <td>{{ item.total }}</td>
+                </tr>
+              {% endfor %}
+            </table>
           </div>
-        {% else %}
-          <table class="table">
-            {% for item in log_list %}
-              <tr>
-                <td>{{ item.source }}</td>
-                <td>{{ item.total }}</td>
-              </tr>
-            {% endfor %}
-          </table>
         {% endif %}
-      </div>
-    </div>
-
-        <p>Now every word you search will be stored in <a href="#">you searches</a>.</p>
-Ω      </div>
     </div>
   </div>
 {% endblock %}
