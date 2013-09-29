@@ -1,3 +1,11 @@
-.top-bar {
-	margin-bottom: 30px;
+body {
+    padding-top: 50px;
+}
+
+.main {
+    margin-top: 50px;
+}
+
+.infoPanel {
+    text-align: center;
 }
