@@ -23,6 +23,9 @@ class TransDefLog(models.Model):
     """
     Model stores user search for translation or definition
     """
+    class Meta:
+        ordering = ['created_at']
+
     account = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name='Account', related_name='log')
     source = models.TextField('Source text', max_length=200)
     translation = models.TextField('Translation', max_length=200, null=True)

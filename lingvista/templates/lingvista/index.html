@@ -25,9 +25,8 @@
             {% for item in log_list %}
               <tr>
                 <td>{{ item.source }}</td>
-                <td>{{ item.lang_from__isocode }}</td>
-                <td>{{ item.lang_to__isocode }}</td>
-                <td>{{ item.total }}</td>
+                <td>{{ item.lang_from.isocode }}</td>
+                <td>{{ item.lang_to.isocode }}</td>
               </tr>
             {% endfor %}
           </table>

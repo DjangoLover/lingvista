@@ -3,7 +3,7 @@
 {% block content %}
   <dl class="dl-horizontal">
     {% for item in log_list %}
-      <dt>{{ item.source }}({{ item.lang_from__isocode }} - {{ item.lang_to__isocode }}): {{ item.total }}</dt>
+      <dt>{{ item.source }}({{ item.lang_from.isocode }} - {{ item.lang_to.isocode }}): {{ item.total }}</dt>
       <dd>
         <ul class="nav nav-pills">
           <li class="btn-xs"><a class="showTranslate" href="#">Show translation</a></li>
