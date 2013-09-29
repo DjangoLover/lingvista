@@ -4,10 +4,6 @@
 {% block content %}
   <div class="row">
     <h1>Account statistics</h1>
-    <form method="POST" action="." class="form-horizontal" role="form">
-        {% csrf_token %}
-        {% crispy form form.helper %}
-        <input type="submit" value="Save" class="btn btn-default"/>
-    </form>
+    {% crispy form form.helper %}
   </div>
 {% endblock %}

@@ -3,5 +3,5 @@ from django.conf.urls import patterns, url
 
 
 urlpatterns = patterns('lingvista.transdef.views',
-    url(r'^trainer/', 'trainer', name='transdef-trainer')
+    url(r'^trainer/', 'trainer', name='trainer')
 )

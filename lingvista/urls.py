@@ -7,8 +7,8 @@ admin.autodiscover()
 urlpatterns = patterns('',
     url(r'^$', 'lingvista.views.index', name='lingvista-index'),
     url(r'^logout/$', 'lingvista.views.logout_user', name='lingvista-logout'),
-    url(r'^transdef/', include('lingvista.transdef.urls')),
     url(r'^account/', include('lingvista.account.urls', namespace='account')),
+    url('', include('lingvista.transdef.urls', namespace='transdef')),
     url('', include('social.apps.django_app.urls', namespace='social')),
 
     url(r'^api/v1/', include('lingvista.api.urls')),
