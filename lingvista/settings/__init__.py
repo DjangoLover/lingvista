@@ -24,13 +24,11 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -39,7 +37,18 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.static",
+    "django.core.context_processors.tz",
+    "django.contrib.messages.context_processors.messages",
+    'social.apps.django_app.context_processors.backends',
+    'social.apps.django_app.context_processors.login_redirect'
 )
 
 ROOT_URLCONF = 'lingvista.urls'
@@ -60,7 +69,7 @@ INSTALLED_APPS = (
     'django_gravatar',
     'south',
     'social.apps.django_app.default',
-    # 'lingvista.account',
+    'lingvista.account',
     'lingvista.api',
     'lingvista.transdef',
 )
@@ -91,32 +100,15 @@ LOGGING = {
     }
 }
 
-#AUTH_USER_MODEL = 'account.Account'
-
-#PUBLIC TRANSLATION API ACCESS
 MS_TRANSLATOR_CLIENT_ID = 'lingvista'
 MS_TRANSLATOR_CLIENT_SECRET = 'tEa4ZYJt7NLl+09I3XeQQ4FnRrMlfNl64g1kdpC/3m8='
-
-ACCOUNT_ACTIVATION_DAYS = 7
 
 AUTHENTICATION_BACKENDS = (
       'social.backends.github.GithubOAuth2',
       'django.contrib.auth.backends.ModelBackend',
 )
 
-TEMPLATE_CONTEXT_PROCESSORS = (
-    "django.contrib.auth.context_processors.auth",
-    "django.core.context_processors.debug",
-    "django.core.context_processors.i18n",
-    "django.core.context_processors.media",
-    "django.core.context_processors.static",
-    "django.core.context_processors.tz",
-    "django.contrib.messages.context_processors.messages",
-    'social.apps.django_app.context_processors.backends',
-    'social.apps.django_app.context_processors.login_redirect'
-)
-
-# SOCIAL_AUTH_USER_MODEL = 'account.Account'
-
+AUTH_USER_MODEL = 'account.Account'
+SOCIAL_AUTH_USER_MODEL = 'account.Account'
 SOCIAL_AUTH_GITHUB_KEY = '3aaa2258dd5b31bede42'
 SOCIAL_AUTH_GITHUB_SECRET = '6559b1bbd9e89ddcb836d6b19c717cf1536f6264'
