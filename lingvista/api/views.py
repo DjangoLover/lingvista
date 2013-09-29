@@ -21,12 +21,18 @@ def transdef(request):
 
     if not lang_from:
         lang_from = detect_language(source)
-    translation = translate(source, lang_from, lang_to)
-    #definition = define(source, lang_from, lang_to)
+    if lang_from != lang_to:
+        translation = translate(source, lang_from, lang_to)
+        definition = define(translation, lang_to)
+    else:
+        translation = None
+        definition = define(source, lang_to)
     data = {
         'lang_from': lang_from.isocode,
         'lang_to': lang_to.isocode,
-        'text': translation
+        'source': source,
+        'translation': translation,
+        'definition': definition,
     }
     return Response(data)
 
