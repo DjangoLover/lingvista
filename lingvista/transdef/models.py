@@ -29,6 +29,6 @@ class TransDefLog(models.Model):
     created_at = models.DateTimeField('Creation time', auto_now_add=True)
 
     def __unicode__(self):
-        return '{0}: {1}'.format(self.pk, self.source[:20])
+        return u'{0}: {1}'.format(self.pk, self.source[:20])
 
 
