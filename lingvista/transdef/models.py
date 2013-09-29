@@ -7,6 +7,9 @@ class Language(models.Model):
     """
     Language avaliable for translation and definition
     """
+    class Meta:
+        ordering = ['name']
+
     isocode = models.TextField("ISO language code", max_length=10)
     bingcode = models.TextField("Bing language code", max_length=10)
     wikicode = models.TextField("Wikipedia language code", max_length=10)
