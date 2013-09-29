@@ -57,9 +57,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-    'registration',
     'south',
-    'lingvista.account',
+    #'lingvista.account',
     'lingvista.api',
     'lingvista.transdef',
 )
@@ -90,7 +89,7 @@ LOGGING = {
     }
 }
 
-AUTH_USER_MODEL = 'account.Account'
+#AUTH_USER_MODEL = 'account.Account'
 
 #PUBLIC TRANSLATION API ACCESS
 MS_TRANSLATOR_CLIENT_ID = 'lingvista'

@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from mstranslator import Translator
 from rest_framework.decorators import api_view
 from rest_framework.generics import get_object_or_404
 from rest_framework.response import Response
