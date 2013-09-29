@@ -1,6 +1,7 @@
 {
   "content_scripts": [
     "content_scripts/jquery-1.10.2.min.js",
+    "content_scripts/bootstrap/js/bootstrap.min.js",
     "content_scripts/interface.js"
 
   ],
@@ -16,6 +17,9 @@
     "caption": "Lingvista",
     "icon": "icons/button.png",
     "tooltipText": "Lingvista"
+  },
+  "context_menu_item": {
+    "caption": "ContextMenuItemDemo"
   },
   "name": "lingvista"
 }

@@ -7,63 +7,50 @@
     <title>Lingvista</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{ STATIC_URL }}foundation-4.3.2/css/normalize.css">
-    <link rel="stylesheet" href="{{ STATIC_URL }}foundation-4.3.2/css/foundation.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
     <link rel="stylesheet" href="{{ STATIC_URL }}css/style.css">
   </head>
   <body>
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-  <nav class="top-bar">
-    <ul class="title-area">
-      <!-- Title Area -->
-      <li class="name">
-        <h1><a href="{% url "lingvista-index" %}">lingvista</a></h1>
-      </li>
-    </ul>
-
-    <section class="top-bar-section">
-      <!-- Left Nav Section -->
-      <ul class="left">
-        <li class="divider"></li>
-      </ul>
-
-      <!-- Right Nav Section -->
-      <ul class="right">
-        {% if user.is_authenticated %}
-          <li class="has-dropdown">
-            <a><span class="gravatar">{% gravatar user.email 30 %}</span> {{ user.first_name }}</a>
-            <ul class="dropdown">
-              <li><a href="#">Requests stats</a></li>
-              <li><a href="#">Lingvista trainer</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Account settings</a></li>
-              <li class="divider"></li>
-              <li><a href="{% url "lingvista-logout" %}">Logout</a></li>
-            </ul>
-          </li>
-        {% else %}
-          <li><a href="{% url "social:begin" backend="github" %}">Login with GitHub</a></li>
-        {% endif %}
-      </ul>
-    </section>
-  </nav>
-
-  <section class="main">
-    <div class="panel row">
-      {% block content %}{% endblock %}
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="{% url "lingvista-index" %}">lingvista</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav pull-right">
+          {% if user.is_authenticated %}
+            <li class="dropdown">
+              <a class="dropdown-toggle username" data-toggle="dropdown" href="#">
+                {% gravatar user.email 30 %}{{ user.first_name }} <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Requests stats</a></li>
+                <li><a href="#">Lingvista trainer</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Account settings</a></li>
+                <li class="divider"></li>
+                <li><a href="{% url "lingvista-logout" %}">Logout</a></li>
+              </ul>
+            </li>
+          {% else %}
+            <li class="auth-link"><a href="{% url "social:begin" backend="github" %}"><i class="icon-github auth-icon"></i> Login with GitHub</a></li>
+          {% endif %}
+        </ul>
+      </div>
     </div>
+  </div>
+
+  <div class="container main">
+    {% block content %}{% endblock %}
   </section>
 
-  <footer>
-
-  </footer>
+  <footer></footer>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  <script type="text/javascript" src="{{ STATIC_URL }}foundation-4.3.2/js/foundation.min.js"></script>
-  <script type="text/javascript">
-    $(document).foundation();
-  </script>
+  <script type="text/javascript" src="{{ STATIC_URL }}bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>
