@@ -5,3 +5,4 @@ South
 PyYAML
 git+https://github.com/wronglink/Wikipedia.git
 python-social-auth==0.1.13
+django-gravatar2

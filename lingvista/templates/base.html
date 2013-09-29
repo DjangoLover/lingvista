@@ -1,3 +1,4 @@
+{% load gravatar %}
 <!DOCTYPE html>
 <html>
   <head>
@@ -31,22 +32,19 @@
       <!-- Right Nav Section -->
       <ul class="right">
         {% if user.is_authenticated %}
-          <li class="has-dropdown"><a href="#">Account</a>
+          <li class="has-dropdown">
+            <a><span class="gravatar">{% gravatar user.email 30 %}</span> {{ user.first_name }}</a>
             <ul class="dropdown">
-              <li><label></label></li>
-              <li>
-                <a href="#" class="">Base functional</a>
-              </li>
-              <li><a href="#">Statistic</a></li>
+              <li><a href="#">Requests stats</a></li>
+              <li><a href="#">Lingvista trainer</a></li>
               <li class="divider"></li>
-              <li><label>Common settings</label></li>
-              <li><a href="#">Settings</a></li>
+              <li><a href="#">Account settings</a></li>
+              <li class="divider"></li>
+              <li><a href="{% url "lingvista-logout" %}">Logout</a></li>
             </ul>
           </li>
         {% else %}
-          <li><a href="#">Login</a></li>
-          <li class="divider"></li>
-          <li><a href="{% url "social:begin" backend="github" %}">Register</a></li>
+          <li><a href="{% url "social:begin" backend="github" %}">Login with GitHub</a></li>
         {% endif %}
       </ul>
     </section>

@@ -57,6 +57,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'django_gravatar',
     'south',
     'social.apps.django_app.default',
     # 'lingvista.account',
