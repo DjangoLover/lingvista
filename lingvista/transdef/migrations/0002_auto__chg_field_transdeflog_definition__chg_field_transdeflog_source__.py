@@ -8,37 +8,26 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        # Adding model 'Language'
-        db.create_table(u'transdef_language', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('isocode', self.gf('django.db.models.fields.TextField')(max_length=10)),
-            ('bingcode', self.gf('django.db.models.fields.TextField')(max_length=10)),
-            ('wikicode', self.gf('django.db.models.fields.TextField')(max_length=10)),
-            ('name', self.gf('django.db.models.fields.TextField')()),
-        ))
-        db.send_create_signal(u'transdef', ['Language'])
 
-        # Adding model 'TransDefLog'
-        db.create_table(u'transdef_transdeflog', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('account', self.gf('django.db.models.fields.related.ForeignKey')(related_name='log', to=orm['account.Account'])),
-            ('source', self.gf('django.db.models.fields.TextField')(max_length='200')),
-            ('translation', self.gf('django.db.models.fields.TextField')(max_length='500')),
-            ('definition', self.gf('django.db.models.fields.TextField')(max_length='500')),
-            ('Source language', self.gf('django.db.models.fields.related.ForeignKey')(related_name='source_set', to=orm['transdef.Language'])),
-            ('Target language', self.gf('django.db.models.fields.related.ForeignKey')(related_name='transdef_set', to=orm['transdef.Language'])),
-            ('created_at', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
-        ))
-        db.send_create_signal(u'transdef', ['TransDefLog'])
+        # Changing field 'TransDefLog.definition'
+        db.alter_column(u'transdef_transdeflog', 'definition', self.gf('django.db.models.fields.TextField')(max_length=500))
 
+        # Changing field 'TransDefLog.source'
+        db.alter_column(u'transdef_transdeflog', 'source', self.gf('django.db.models.fields.TextField')(max_length=200))
+
+        # Changing field 'TransDefLog.translation'
+        db.alter_column(u'transdef_transdeflog', 'translation', self.gf('django.db.models.fields.TextField')(max_length=500))
 
     def backwards(self, orm):
-        # Deleting model 'Language'
-        db.delete_table(u'transdef_language')
 
-        # Deleting model 'TransDefLog'
-        db.delete_table(u'transdef_transdeflog')
+        # Changing field 'TransDefLog.definition'
+        db.alter_column(u'transdef_transdeflog', 'definition', self.gf('django.db.models.fields.TextField')(max_length='500'))
 
+        # Changing field 'TransDefLog.source'
+        db.alter_column(u'transdef_transdeflog', 'source', self.gf('django.db.models.fields.TextField')(max_length='200'))
+
+        # Changing field 'TransDefLog.translation'
+        db.alter_column(u'transdef_transdeflog', 'translation', self.gf('django.db.models.fields.TextField')(max_length='500'))
 
     models = {
         u'account.account': {
@@ -92,10 +81,10 @@ class Migration(SchemaMigration):
             'Target language': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'transdef_set'", 'to': u"orm['transdef.Language']"}),
             'account': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'log'", 'to': u"orm['account.Account']"}),
             'created_at': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
-            'definition': ('django.db.models.fields.TextField', [], {'max_length': "'500'"}),
+            'definition': ('django.db.models.fields.TextField', [], {'max_length': '500'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'source': ('django.db.models.fields.TextField', [], {'max_length': "'200'"}),
-            'translation': ('django.db.models.fields.TextField', [], {'max_length': "'500'"})
+            'source': ('django.db.models.fields.TextField', [], {'max_length': '200'}),
+            'translation': ('django.db.models.fields.TextField', [], {'max_length': '500'})
         }
     }
 
