@@ -5,17 +5,37 @@
     <div class="">
       <div class="panel panel-primary">
         <div class="panel-heading">About</div>
+        <div class="panel-body">
+          <p>How many times you searched foreign words translations or definitions and couldn't remember after?</p>
+          <p>Most of dictionary searches are one-off. The key idea of remembering knew words is to repeat them later.
+             And here is where lingvista can help you.</p>
 
-        <p>How many times you searched foreign words translations or definitions and couldn't remember after?</p>
-        <p>Most of dictionary searches are one-off. The key idea of remembering knew words is to repeat them later.</p>
-        <p>And here where lingvista comes.</p>
 
-        Threre are only three steps that separate you from learning new words:
-        <ol>
-          <li>Sing up in our service with social account. By now we support <a href="{% url "social:begin" backend="github" %}"><i class="icon-github auth-icon"></i> GitHub</a>.</li>
-          <li>Select your native language in <a href="">account settings</a>.</li>
-          <li>Download our <a href="">Google Chrome Plugin</a></li>
-        </ol>
+          To start learning new words follow three steps:
+          <ol>
+            <li>Sing up in our service with social account. By now we support <a href="{% url "social:begin" backend="github" %}"><i class="icon-github auth-icon"></i> GitHub</a>.</li>
+            <li>Select your tranlation language in <a href="">account settings</a>.</li>
+            <li>Download our <a href="">Google Chrome Plugin</a>.</li>
+          </ol>
+        </div>
+
+        <div class="panel-heading">Phrases</div>
+        {% if log_list|length == 0 %}
+          <div class="panel-body">
+            <p>There are no phrases</p>
+          </div>
+        {% else %}
+          <table class="table">
+            {% for item in log_list %}
+              <tr>
+                <td>{{ item.source }}</td>
+                <td>{{ item.total }}</td>
+              </tr>
+            {% endfor %}
+          </table>
+        {% endif %}
+      </div>
+    </div>
 
         <p>Now every word you search will be stored in <a href="#">you searches</a>.</p>
 Ω      </div>
