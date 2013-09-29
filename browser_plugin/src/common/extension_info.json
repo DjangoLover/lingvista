@@ -1,7 +1,6 @@
 {
   "content_scripts": [
     "content_scripts/jquery-1.10.2.min.js",
-    "content_scripts/bootstrap/js/bootstrap.min.js",
     "content_scripts/interface.js"
 
   ],
@@ -10,7 +9,6 @@
   "background_scripts": [
     "background_scripts/main.js"
   ],
-  "options_page": "options.html",
   "homepage_url": "http://lingvista.org/",
   "version": "0.1",
   "browser_button": {
@@ -19,7 +17,7 @@
     "tooltipText": "Lingvista"
   },
   "context_menu_item": {
-    "caption": "ContextMenuItemDemo"
+    "caption": "Lingvista"
   },
   "name": "lingvista"
 }

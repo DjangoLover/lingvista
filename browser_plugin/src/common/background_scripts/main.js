@@ -31,7 +31,7 @@
         });
     });
 
-    kango.invokeAsync('kango.io.getExtensionFileContents', 'content_scripts/bootstrap/css/bootstrap.css', function(content) {
+    kango.invokeAsync('kango.io.getExtensionFileContents', 'content_scripts/bootstrap/css/bootstrap-popover.css', function(content) {
         self.content = content;
     });
 

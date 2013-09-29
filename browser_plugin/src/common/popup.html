@@ -1,26 +1,41 @@
 <html>
   <head>
     <style>
-      body {
+      .wrapper {
         background: #eee;
       }
-      .LVPopup {
-        width: 200px;
-        height: 100px;
+      .wrapper {
+        width: 300px;
+        height: 200px;
+      }
+      select {
+        width: 100px;
       }
     </style>
+    <link rel="stylesheet" href="content_scripts/bootstrap/css/bootstrap.min.css">
     <script type="text/javascript" src="content_scripts/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="kango-ui/kango_api.js"></script>
     <script type="text/javascript" src="popup.js"></script>
   </head>
   <body>
-    <div class="LVPopup">
-      <h3>LingvoVista</h3>
-      <ul>
-        <li><a href="http://google.com/">Account</a></li>
-        <li><a id="options-page" href="#">Options</a></li>
-      </ul>
+    <div class="wrapper">
+      <div class="container">
+      <h3>Lingvista</h3>
+        <form class="form-horizontal" role="form">
+          <div class="form-group">
+            <label for="inputEmail1" class="col-md-2 control-label">Email</label>
+            <div class="col-md-4">
+              <select class="form-control input-sm" id="inputEmail1">
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="submit" class="btn btn-default btn-sm">Save</button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
-    <hr/>
   </body>
 </html>
