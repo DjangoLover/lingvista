@@ -1,0 +1,17 @@
+<html>
+<head>
+    <title>Statistics from lingvista</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+    <table>
+    {% for item in translate_list %}
+        <tr>
+            <td>{% forloop.counter %}.</td>
+            <td>{{ item.source }}</td>
+            <td>{{ item.text }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+</body>
+</html>
