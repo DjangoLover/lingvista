@@ -25,23 +25,29 @@ function translateText(text, x, y) {
 
         showPopup(x, y, "<img src='" + Settings.URL_STATIC + "img/ajax-loader.gif' />");
 
-        var data = {
-            "lang_to": "ru",
-            "source": text
-        };
         $.ajax({
-            "url": Settings.URL_TRANSDEF_API,
+            "url": Settings.URL_ACCOUNT_API,
             "type": "GET",
-            "data": data,
             "success": function (response) {
-                var result = "<b>Translation:</b> " + response.translation;
-                if (response.definition !== null) {
-                    result += "<br/><b>Definition:</b> " + response.definition;
-                    result += "<br/><a href=" + response.definition_url + '">More on Wikipedia</a>';
-                }
-                showPopup(x, y, result);
+                var data = {
+                    "lang_to": response.language,
+                    "source": text
+                };
+                $.ajax({
+                    "url": Settings.URL_TRANSDEF_API,
+                    "type": "GET",
+                    "data": data,
+                    "success": function (response) {
+                        var result = "<b>Translation:</b> " + response.translation;
+                        if (response.definition !== null) {
+                            result += "<br/><br/><b>Definition:</b> " + response.definition;
+                            result += "<br/><a href=" + response.definition_url + '">More on Wikipedia</a>';
+                        }
+                        showPopup(x, y, result);
+                    }
+                });
             }
-        });
+        })
     }
 }
 
