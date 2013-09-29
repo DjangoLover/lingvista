@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from rest_framework.decorators import api_view
-from rest_framework.generics import get_object_or_404, RetrieveAPIView
+from rest_framework.generics import get_object_or_404, RetrieveUpdateAPIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
@@ -37,15 +37,17 @@ def transdef(request):
                 lang_from=lang_from,
                 lang_to=lang_to
             )
+        def_url, def_summary = define(translation, lang_to)
     else:
         translation = None
-        definition = define(source, lang_to)
+        def_url, def_summary = define(source, lang_to)
     data = {
         'lang_from': lang_from.isocode,
         'lang_to': lang_to.isocode,
         'source': source,
         'translation': translation,
-        'definition': definition,
+        'definition': def_summary,
+        'definition_url': def_url,
     }
     return Response(data)
 
@@ -59,7 +61,11 @@ def langs(request):
     return Response(languages)
 
 
-class AccountSettingsView(RetrieveAPIView):
+class AccountSettingsView(RetrieveUpdateAPIView):
+    """
+    Shows current user his settings and allows to change it
+    via GET, PUT or PATCH queryies
+    """
     permission_classes = (IsAuthenticated,)
     queryset = Account.objects.all()
     serializer_class = AccountSettingsSerializer

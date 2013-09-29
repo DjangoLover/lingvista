@@ -36,7 +36,8 @@ function translateText(text, x, y) {
             "success": function (response) {
                 var result = "<b>Translation:</b> " + response.translation;
                 if (response.definition !== null) {
-                    result += "<br/><br/><b>Definition:</b> " + response.definition;
+                    result += "<br/><b>Definition:</b> " + response.definition;
+                    result += "<br/><a href=" + response.definition_url + '">More on Wikipedia</a>';
                 }
                 showPopup(x, y, result);
             }
