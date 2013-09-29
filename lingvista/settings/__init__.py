@@ -99,7 +99,7 @@ MS_TRANSLATOR_CLIENT_SECRET = 'tEa4ZYJt7NLl+09I3XeQQ4FnRrMlfNl64g1kdpC/3m8='
 ACCOUNT_ACTIVATION_DAYS = 7
 
 AUTHENTICATION_BACKENDS = (
-      'social.backends.github.GithubOrganizationOAuth2',
+      'social.backends.github.GithubOAuth2',
       'django.contrib.auth.backends.ModelBackend',
 )
 
@@ -117,6 +117,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
 # SOCIAL_AUTH_USER_MODEL = 'account.Account'
 
-SOCIAL_AUTH_GITHUB_ORG_KEY = '3aaa2258dd5b31bede42'
-SOCIAL_AUTH_GITHUB_ORG_SECRET = '6559b1bbd9e89ddcb836d6b19c717cf1536f6264'
-SOCIAL_AUTH_GITHUB_ORG_NAME = 'Pyjamas'
+SOCIAL_AUTH_GITHUB_KEY = '3aaa2258dd5b31bede42'
+SOCIAL_AUTH_GITHUB_SECRET = '6559b1bbd9e89ddcb836d6b19c717cf1536f6264'
+#SOCIAL_AUTH_GITHUB_NAME = 'Pyjamas'
+#SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
