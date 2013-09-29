@@ -1,8 +1,17 @@
 {% extends "base.html" %}
 
 {% block content %}
-  {% for item in log_list %}
-    {{ item.source }} - {{ item.total }}
-    <br/>
-  {% endfor %}
+  <dl class="dl-horizontal">
+    {% for item in log_list %}
+      <dt>{{ item.source }}({{ item.lang_from__isocode }} - {{ item.lang_to__isocode }}): {{ item.total }}</dt>
+      <dd>
+        <ul class="nav nav-pills">
+          <li class="btn-xs"><a class="showTranslate" href="#">Show translation</a></li>
+          <li class="btn-xs"><a class="showDefinition" href="#">Show Definition</a></li>
+        </ul>
+        <pre class="translateText" style="display: none; margin-top: 15px;">{{ item.translation }}</pre>
+        <pre class="definitionText" style="display: none;">{{ item.definition }}</pre>
+      </dd>
+    {% endfor %}
+  </dl>
 {% endblock %}
