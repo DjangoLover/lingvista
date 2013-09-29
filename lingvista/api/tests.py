@@ -9,7 +9,7 @@ class APITest(APITestCase):
     fixtures = ['initial_data']
 
     def test_translate(self):
-        response = self.client.get('/api/v1/translate/', {'source': 'Привет', 'lang_to': 'en'})
+        response = self.client.get('/api/v1/transdef/', {'source': 'Привет', 'lang_to': 'en'})
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.data, {'lang_from': 'ru', 'lang_to': 'en', 'text': 'Hello'})
 
