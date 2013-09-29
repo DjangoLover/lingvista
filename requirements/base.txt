@@ -6,3 +6,4 @@ PyYAML
 git+https://github.com/wronglink/Wikipedia.git
 python-social-auth==0.1.13
 django-gravatar2
+django-crispy-forms==1.4.0

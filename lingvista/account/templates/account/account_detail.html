@@ -1,12 +1,13 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 
 {% block content %}
   <div class="row">
     <h1>Account settings</h1>
-    <form method="POST" action=".">
+    <form method="POST" action="." role="form">
         {% csrf_token %}
-        <table>{{ form.as_table }}</table>
-        <input type="submit" value="Save" />
+        {% crispy form form.helper %}
+        <input type="submit" value="Save" class="btn btn-default" />
     </form>
   </div>
 {% endblock %}

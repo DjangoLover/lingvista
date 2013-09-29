@@ -69,6 +69,7 @@ INSTALLED_APPS = (
     'django_gravatar',
     'south',
     'social.apps.django_app.default',
+    'crispy_forms',
     'lingvista.account',
     'lingvista.api',
     'lingvista.transdef',
@@ -120,3 +121,5 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
     )
 }
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
