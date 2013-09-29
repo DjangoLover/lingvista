@@ -38,4 +38,4 @@
 }
 
 var extension = new LingvistaExtension();
-kango.ui.browserButton.setPopup({url:'popup.html'});
+//kango.ui.browserButton.setPopup({url:'popup.html'});

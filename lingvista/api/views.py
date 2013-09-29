@@ -26,21 +26,19 @@ def transdef(request):
         lang_from = detect_language(source)
     if lang_from != lang_to:
         translation = translate(source, lang_from, lang_to)
-        # FIXME: definition -> null=True
-        definition = define(translation, lang_to) or ''
-        if request.user.is_authenticated():
-            TransDefLog.objects.create(
-                account=request.user,
-                source=source,
-                translation=translation,
-                definition=definition,
-                lang_from=lang_from,
-                lang_to=lang_to
-            )
         def_url, def_summary = define(translation, lang_to)
     else:
         translation = None
         def_url, def_summary = define(source, lang_to)
+    if request.user.is_authenticated():
+        TransDefLog.objects.create(
+            account=request.user,
+            source=source,
+            translation=translation,
+            definition=def_summary,
+            lang_from=lang_from,
+            lang_to=lang_to
+        )
     data = {
         'lang_from': lang_from.isocode,
         'lang_to': lang_to.isocode,

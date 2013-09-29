@@ -2,15 +2,26 @@
 
 {% block content %}
   <div class="row">
-    <div class="col-md-7">
+    <div class="">
       <div class="panel panel-primary">
-        <div class="panel-heading">Phrases</div>
-        {% if log_list|length == 0 %}
-          <div class="panel-body">
-            <p>There are no phrases</p>
-          </div>
-        {% else %}
-          <table class="table table-hover">
+        <div class="panel-heading">About</div>
+        <div class="panel-body">
+          <p>How many times you searched foreign words translations or definitions and couldn't remember after?</p>
+          <p>Most of dictionary searches are one-off. The key idea of remembering knew words is to repeat them later.
+             And here is where lingvista can help you.</p>
+
+
+          To start learning new words follow steps:
+          <ol>
+            <li>Sing up in our service with social account. By now we support <a href="{% url "social:begin" backend="github" %}"><i class="icon-github auth-icon"></i> GitHub</a>.</li>
+            <li>Select your tranlation language in <a href="{% url "account:settings" %}">account settings</a>.</li>
+            <li>Download our <a href="https://chrome.google.com/webstore/detail/lingvista/ohbdkdpibddjccbppncefncdojenkogf">Google Chrome Plugin</a>.</li>
+            <li>Double-click any word you want to translate or define.</li>
+            <li>Return later to see words you searched and to test yourself whith our <a href="#">trainer</a>.</li>
+          </ol>
+        </div>
+          <div class="panel-heading">Your last searches</div>
+            <table class="table table-hover">
             {% for item in log_list %}
               <tr>
                 <td>{{ item.source }}</td>
@@ -20,12 +31,6 @@
               </tr>
             {% endfor %}
           </table>
-        {% endif %}
-      </div>
-    </div>
-
-    <div class="col-md-3 col-md-offset-2 infoPanel">
-      <h3><a href="#">Account</a></h3>
     </div>
   </div>
 {% endblock %}
