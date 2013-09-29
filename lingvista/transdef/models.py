@@ -11,6 +11,9 @@ class Language(models.Model):
     bingcode = models.TextField("Bing language code", max_length=10)
     wikicode = models.TextField("Wikipedia language code", max_length=10)
     name = models.TextField("Readable name")
+    
+    def __unicode__(self):
+        return self.name
 
 
 class TransDefLog(models.Model):

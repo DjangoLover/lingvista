@@ -7,7 +7,7 @@
     <table>
     {% for item in translate_list %}
         <tr>
-            <td>{% forloop.counter %}.</td>
+            <td>{{ forloop.counter }}.</td>
             <td>{{ item.source }}</td>
             <td>{{ item.text }}</td>
         </tr>

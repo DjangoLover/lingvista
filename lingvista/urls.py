@@ -11,4 +11,8 @@ urlpatterns = patterns('',
 
     url(r'^api/v1/', include('lingvista.api.urls')),
     url(r'^admin/', include(admin.site.urls)),
+    
+    url(r'^account/detail/$', 'lingvista.account.views.account_detail', name='account-detail'),
+    url(r'^account/statistics/$', 'lingvista.account.views.account_statistics', name='account-statistics'),
+    
 )
