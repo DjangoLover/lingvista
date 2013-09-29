@@ -1,10 +1,14 @@
 # -*- coding: utf-8 -*-
 from rest_framework.decorators import api_view
-from rest_framework.generics import get_object_or_404
+from rest_framework.generics import get_object_or_404, RetrieveAPIView
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
+from lingvista.api.serializers import AccountSettingsSerializer
+from lingvista.account.models import Account
 from lingvista.transdef.utils import define, translate, detect_language
 from lingvista.transdef.models import Language
+
 
 
 @api_view(['GET'])
@@ -43,3 +47,15 @@ def langs(request):
     """
     languages = Language.objects.all().values_list('isocode', 'name')
     return Response(languages)
+
+
+class AccountSettingsView(RetrieveAPIView):
+    permission_classes = (IsAuthenticated,)
+    queryset = Account.objects.all()
+    serializer_class = AccountSettingsSerializer
+
+    def get_object(self, queryset=None):
+        return self.request.user
+
+    def get_object_or_none(self):
+        return self.request.user
