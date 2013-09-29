@@ -4,14 +4,15 @@ from django.core.exceptions import ObjectDoesNotExist
 
 from lingvista.account.forms import AccountForm, DeliverySettingsForm
 
-def account_detail(request):
+
+def settings(request):
     form = AccountForm(request.POST or None, instance=request.user)
     if form.is_valid():
         form.save()
-    return render(request, 'account/account_detail.html', {'form': form})
+    return render(request, 'account/settings.html', {'form': form})
 
-def account_statistics(request):
-    
+
+def delivery_settings(request):
     try:
         instance = request.user.delivery_settings
     except ObjectDoesNotExist:
@@ -22,4 +23,4 @@ def account_statistics(request):
         obj = form.save(commit=False)
         obj.account = request.user
         obj.save()
-    return render(request, 'account/account_statistics.html', {'form': form})
+    return render(request, 'account/delivery_settings.html', {'form': form})
