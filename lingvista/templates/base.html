@@ -46,7 +46,7 @@
         {% else %}
           <li><a href="#">Login</a></li>
           <li class="divider"></li>
-          <li><a href="#">Register</a></li>
+          <li><a href="{% url "social:begin" backend="github-org" %}">Register</a></li>
         {% endif %}
       </ul>
     </section>
