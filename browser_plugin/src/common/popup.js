@@ -1,7 +1,7 @@
 KangoAPI.onReady(function() {
 
     $.ajax({
-        "url": "http://localhost:8000/api/v1/languages/",
+        "url": URL_LANGUAGES_API,
         "type": "GET",
         "success": function (response) {
             console.log(response);
