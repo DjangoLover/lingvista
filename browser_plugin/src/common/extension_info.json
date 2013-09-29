@@ -11,7 +11,7 @@
     "background_scripts/main.js"
   ],
   "homepage_url": "http://lingvista.org/",
-  "version": "0.1",
+  "version": "0.2",
   "browser_button": {
     "caption": "Lingvista",
     "icon": "icons/button.png",

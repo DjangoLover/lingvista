@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 import wikipedia
+import textwrap
+
 from django.conf import settings
 from mstranslator import Translator
 
@@ -30,6 +32,11 @@ def define(source, lang):
     """
     wikipedia.set_lang(lang.wikicode)
     try:
-        return wikipedia.summary(source, chars=200)
+        page = wikipedia.page(source, auto_suggest=True, redirect=True)
+        if len(page.summary) > 200:
+            summary = textwrap.wrap(page.summary, 197)[0] + '...'
+        else:
+            summary = page.summary, 197
+        return page.url, summary
     except:
-        return None
+        return None, None
