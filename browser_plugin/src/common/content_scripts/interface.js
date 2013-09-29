@@ -1,5 +1,3 @@
-var LINGVO_VISTA_API_URL = "http://lingvista/api/v1/translate/";
-
 function getSelected () {
   if (window.getSelection) {
     return window.getSelection().toString();
@@ -25,14 +23,14 @@ function getLanguage () {
 function translateText(text, x, y) {
     if (!!text) {
 
-        showPopup(x, y, "<img src='http://localhost:8000/static/img/ajax-loader.gif' />");
+        showPopup(x, y, "<img src='" + Settings.URL_STATIC + "img/ajax-loader.gif' />");
 
         var data = {
             "lang_to": "ru",
             "source": text
         };
         $.ajax({
-            "url": "http://localhost:8000/api/v1/transdef/",
+            "url": Settings.URL_TRANSDEF_API,
             "type": "GET",
             "data": data,
             "success": function (response) {
