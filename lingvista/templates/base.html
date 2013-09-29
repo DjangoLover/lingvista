@@ -7,7 +7,8 @@
     <title>Lingvista</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{ STATIC_URL }}bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
     <link rel="stylesheet" href="{{ STATIC_URL }}css/style.css">
   </head>
   <body>
@@ -23,8 +24,8 @@
         <ul class="nav navbar-nav pull-right">
           {% if user.is_authenticated %}
             <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <span class="gravatar">{% gravatar user.email 20 %}</span> {{ user.first_name }} <span class="caret"></span>
+              <a class="dropdown-toggle username" data-toggle="dropdown" href="#">
+                {% gravatar user.email 30 %}{{ user.first_name }} <span class="caret"></span>
               </a>
               <ul class="dropdown-menu">
                 <li><a href="#">Requests stats</a></li>
@@ -36,7 +37,7 @@
               </ul>
             </li>
           {% else %}
-            <li><a href="{% url "social:begin" backend="github" %}">Login with GitHub</a></li>
+            <li class="auth-link"><a href="{% url "social:begin" backend="github" %}"><i class="icon-github auth-icon"></i> Login with GitHub</a></li>
           {% endif %}
         </ul>
       </div>

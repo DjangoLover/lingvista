@@ -9,3 +9,13 @@ body {
 .infoPanel {
     text-align: center;
 }
+
+.gravatar {
+    margin-right: 7px;
+    border-radius: 3px;
+}
+
+.navbar-nav>li>a.username {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
