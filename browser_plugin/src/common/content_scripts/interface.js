@@ -22,11 +22,35 @@ function getLanguage () {
     return "";
 }
 
+function translateText(text, x, y) {
+    if (!!text) {
+
+        showPopup(x, y, "<img src='http://localhost:8000/static/img/ajax-loader.gif' />");
+
+        var data = {
+            "lang_to": "ru",
+            "source": text
+        };
+        $.ajax({
+            "url": "http://localhost:8000/api/v1/transdef/",
+            "type": "GET",
+            "data": data,
+            "success": function (response) {
+                var result = "<b>Translation:</b> " + response.translation;
+                if (response.definition !== null) {
+                    result += "<br/><br/><b>Definition:</b> " + response.definition;
+                }
+                showPopup(x, y, result);
+            }
+        });
+    }
+}
+
 function showPopup(x, y, text) {
     var popup = $('<div class="popover fade top in" style="display: block;"><div class="arrow"></div><div class="popover-content"></div></div>');
-
     $("#LVPanel").remove();
-    popup.find(".popover-content").text(text);
+
+    popup.find(".popover-content").html(text);
 
     popup.css({
         "position": "absolute",
@@ -42,25 +66,19 @@ function showPopup(x, y, text) {
     });
 }
 
+$(document).on("click", function (e) {
+    $("#LVPanel").remove();
+});
+
+
 $(document).on("dblclick", function (e) {
     var text = $.trim(getSelected());
-
-    if (!!text) {
-        $.ajax({
-            "url": "http://localhost:8000/api/v1/translate/",
-            "type": "GET",
-            "data": {"text": text},
-            "success": function (response) {
-                var translation = response["translation"];
-                showPopup(e.pageX, e.pageY, translation);
-            }
-        });
-    }
-
+    translateText(text, e.pageX, e.pageY);
 });
 
 kango.addMessageListener('LV.ContextMenuItemClick', function(event) {
-    // showPopup(e.pageX, e.pageY, getSelected());
+    var text = $.trim(getSelected());
+    // translateText(text, e.pageX, e.pageY);
 });
 
 kango.addMessageListener('LV.Start', function(event) {
