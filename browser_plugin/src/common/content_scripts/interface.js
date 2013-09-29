@@ -38,9 +38,12 @@ function translateText(text, x, y) {
                     "type": "GET",
                     "data": data,
                     "success": function (response) {
-                        var result = "<b>Translation:</b> " + response.translation;
+                        var result = ""
+                        if (response.translation !== null) {
+                            result += response.translation;
+                        }
                         if (response.definition !== null) {
-                            result += "<br/><br/><b>Definition:</b> " + response.definition;
+                            result += "<br/>" + response.definition;
                             result += '<br/><a href="' + response.definition_url + '">More on Wikipedia</a>';
                         }
                         showPopup(x, y, result);
