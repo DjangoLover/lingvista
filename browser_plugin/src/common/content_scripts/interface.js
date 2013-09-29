@@ -22,12 +22,31 @@ function getLanguage () {
     return "";
 }
 
-$(document).on("dblclick", function (e) {
-    var text = getSelected();
+function showPopup(x, y, text) {
+    var popup = $('<div class="popover fade top in" style="display: block;"><div class="arrow"></div><div class="popover-content"></div></div>');
 
     $("#LVPanel").remove();
+    popup.find(".popover-content").text(text);
 
-    alert(text);
+    popup.css({
+        "position": "absolute",
+        "left": -10000,
+        "top": -10000
+    });
+    popup.attr("id", "LVPanel");
+    $("body").append(popup);
+
+    popup.css({
+       "left": x - popup.width() / 2,
+       "top": y - popup.height() - 10
+    });
+}
+
+$(document).on("dblclick", function (e) {
+
+    showPopup(e.pageX, e.pageY, getSelected());
+
+
 
     // if (text) {
     //     var requestData = {
@@ -63,7 +82,7 @@ $(document).on("dblclick", function (e) {
 });
 
 kango.addMessageListener('LV.ContextMenuItemClick', function(event) {
-    alert(getSelected());
+    // showPopup(e.pageX, e.pageY, getSelected());
 });
 
 kango.addMessageListener('LV.Start', function(event) {
